@@ -444,8 +444,12 @@ class DeviceData:
         print(format((sends / sample_time), '>16.3f'), end='')
         print(format(backlog, '>16.3f'))
         print()
-        port = int(opts[2])
-        graphite = opts[1]
+        if opts[2]:
+          port = int(opts[2])
+        if opts[1]:
+          graphite = opts[1]
+        else:
+          graphite = ""
         which = opts[0]
         if graphite:
           if which == 0:
